@@ -33,6 +33,7 @@ function squery_form(){
 			     '#title' => t('Endpoint'),
 			     '#size' => 80,
 			     '#maxlength' => 80,
+			     '#required' => TRUE,
 			     '#description' => t('E.g. http://dbpedia.org/sparql'),
 			     );
   $form['userquery'] = array(
@@ -62,16 +63,6 @@ function squery_form(){
 			   '#value' => 'Submit',
 			   );
   return $form;
-}
-
-/* 
- * Implements hook_form_validate
- */
-
-function squery_form_validate($form, &$form_state){
-  if ($form_state['values']['endpoint'] == NULL){
-    form_set_error('endpoint', t('endpoint must be provided.'));
-  }
 }
 
 /* 
